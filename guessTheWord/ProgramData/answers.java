@@ -3,7 +3,8 @@ package guessTheWord.ProgramData;
 public class answers {
     private static final String[] APlace = new String[] {
             "A1",
-            "A2"
+            "A2",
+            "A3"
     };
 
     private static final String[] AThings = new String[] {
