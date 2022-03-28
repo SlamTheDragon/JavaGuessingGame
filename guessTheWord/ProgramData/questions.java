@@ -5,7 +5,8 @@ public class questions {
         "It is a country that comprises about 7,460 islands that are divided into three primary divisions from north to south.",
         "What majestic mountain range is found in Switzerland?",
         "This is the capital city of the Philippines.",
-        "dude wtf, your questions are hard"
+        "dude wtf, your questions are hard",
+        "pa ulit ako atay"
     };
 
     private static final String[] QThings = new String[] {
