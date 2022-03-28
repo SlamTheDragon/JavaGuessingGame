@@ -1,13 +1,14 @@
 /*
+========================
 CP3 - Java Guessing Game
-
 By Group 1
+========================
 
-Members:
-Asanas, Derfel John S.
-Ryan Paul Escobidal
-Nacar Heartlie
-Iresh
+MEMBERS:
+- Asanas, Derfel John S.
+- Ryan Paul Escobidal
+- Nacar Heartlie
+- Iresh
 */
 
 package guessTheWord;
@@ -23,7 +24,7 @@ public class main {
         Scanner userInput = new Scanner(System.in);
 
 
-        //object class (userdata; "name")
+        //initialization of object class referenced as userdata
         userdata username = new userdata();
         //userdata answers = new userdata();
 
