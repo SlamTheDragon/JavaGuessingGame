@@ -1,4 +1,4 @@
-package guessTheWord.ProgramData;
+package guesstheword.programdata;
 
 public class questions {
     private static final String[] QPlace = new String[] {
