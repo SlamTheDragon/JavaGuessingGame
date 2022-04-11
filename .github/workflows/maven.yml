@@ -24,12 +24,19 @@ jobs:
         cache: maven
         
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-      
-    - name: List current directory
-      run: ls -a
-      
-    - name: target a folder
       run: |
-        cd target
-        ls -a
+        mvn -B package --file pom.xml
+        mkdir output && cp target/*.jar output
+      
+    - name: Caching
+      uses: actions/cache@v2
+      with: 
+        path: ~/.m2
+        key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
+        restore-keys: ${{runner.os}}-m2
+    
+    - name: Persist workflow data as artifacts
+      uses: actions/upload-artifact@v2
+      with: 
+        name: generate
+        path: output
