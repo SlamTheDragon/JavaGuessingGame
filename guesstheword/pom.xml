@@ -30,8 +30,8 @@
 	  </dependency>
   </dependencies>
 
-  <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+  <!-- <build>
+    <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -52,7 +52,6 @@
           <artifactId>maven-shade-plugin</artifactId>
           <version>3.2.0</version>
           <executions>
-            <!-- Attach the shade goal into the package phase -->
             <execution>
               <phase>package</phase>
                 <goals>
@@ -70,5 +69,5 @@
           </plugin>
       </plugins>
     </pluginManagement>
-  </build>
+  </build> -->
 </project>
