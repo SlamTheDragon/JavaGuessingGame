@@ -35,8 +35,6 @@ public class entry {
             //re-intro
             consoleLog.intro1();
             menu.nameDataIntro();
-            consoleLog.intro2();
-            data.userInput.nextLine();
         }
 
         data.userInput.close();
