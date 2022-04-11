@@ -1,4 +1,4 @@
-package com.group1.data;
+package com.group1.data.program;
 
 public class answers {
     private static final String[] APlace = new String[] {

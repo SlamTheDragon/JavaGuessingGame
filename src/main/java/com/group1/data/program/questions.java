@@ -1,4 +1,4 @@
-package com.group1.data;
+package com.group1.data.program;
 
 public class questions {
     private static final String[] QPlace = new String[] {
