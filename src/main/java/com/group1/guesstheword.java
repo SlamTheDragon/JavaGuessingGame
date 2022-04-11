@@ -31,7 +31,7 @@ public class guesstheword {
             }
         } else {
             entry.main(new String[0]);
-            System.out.println("Program has ended, press enter to exit");
+            System.out.println("Program has ended, type 'EXIT' to exit");
         }
     }
 }
