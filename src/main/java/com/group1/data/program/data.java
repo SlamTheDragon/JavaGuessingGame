@@ -15,5 +15,5 @@ public class data {
     public static String stringUserInput;
     public static int score;
     public static boolean introName = true;
-    
+    public static boolean globalRun = true;
 }

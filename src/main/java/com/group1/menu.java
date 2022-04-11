@@ -1,36 +1,40 @@
 package com.group1;
 
 import java.util.InputMismatchException;
+import com.group1.data.lang.consoleLog;
 import com.group1.data.program.data;
-
+// TODO import java.util.Random;
 
 public class menu {
+    //Initialize local variables
+    private static int menuBreakCounter;
+    private static boolean menuBreak = true;
+
     public static void main(String[] strings) throws InputMismatchException {
 
-        while (true) {
-            System.out.println("[MENU] =======[MAIN MENU]=======");
-            System.out.println("[MENU]      Enter  a  Number    ");
-            System.out.println("[MENU]       [1] Play Game      ");
-            System.out.println("[MENU]       [2] Mechanics      ");
-            System.out.println("[MENU]       [3] Prev Score     ");
-            System.out.println("[MENU]       [4] Settings       ");
-            System.out.println("[MENU]       [5] Quit Game      ");
-            System.out.println("[MENU] =========================");
+        while (menuBreak) {
+
+            consoleLog.menu();
 
             data.stringUserInput = data.userInput.nextLine();
 
             if (data.stringUserInput.equals("1")) {
+                menuBreakCounter = 0;
                 option1();
             } else if (data.stringUserInput.equals("2")) {
+                menuBreakCounter = 0;
                 option2();
             } else if (data.stringUserInput.equals("3")) {
+                menuBreakCounter = 0;
                 option3();
             } else if (data.stringUserInput.equals("4")) {
+                menuBreakCounter = 0;
                 option4();
             } else if (data.stringUserInput.equals("5")) {
+                menuBreakCounter = 0;
                 option5();
             } else if (data.stringUserInput.equals("-1")) {
-                System.out.println("[SUB] Are you sure you would like to restart the program? [Y/N]");
+                consoleLog.subRestart();
                 data.stringUserInput = data.userInput.nextLine();
                 data.conditions.setInput(data.stringUserInput);
 
@@ -40,8 +44,13 @@ public class menu {
                     // skip
                 }
             } else {
-                System.out.println("[WARN] Please enter a number only!");
-                // FIXME Add counter and reset to auto end the program if this continues up to 5
+                consoleLog.errMismatch1();
+                ++menuBreakCounter;
+                if (menuBreakCounter == 4) {
+                    consoleLog.errExceeded();
+                    data.globalRun = false;
+                    menuBreak =false;
+                }
             }
         }
 
@@ -59,9 +68,9 @@ public class menu {
     public static void option2() {
         // TODO game mechanics
 
-        System.out.println("[SUB] Mechanics Here.");
+        consoleLog.subMech();
         while (true) {
-            System.out.println("[SUB] Type \"BACK\" to go back or type \"QUIT\" to quit the game");
+            consoleLog.subOptions1();
             data.stringUserInput = data.userInput.nextLine();
             if (data.stringUserInput.equalsIgnoreCase("BACK")) {
                 break;
@@ -79,16 +88,12 @@ public class menu {
         // settings
 
         while (true) {
-            System.out.println("[MENU] =======[ SETTINGS ]=======");
-            System.out.println("[MENU]       Enter  a  Number    ");
-            System.out.println("[MENU]        [1] Change Name (" + data.username.getInput() + ")");
-            System.out.println("[MENU]        [2] Back           ");
-            System.out.println("[MENU] ==========================");
+            consoleLog.menuSettings();
 
             data.stringUserInput = data.userInput.nextLine();
 
             if (data.stringUserInput.equals("1")) {
-                System.out.println("[WORKER] Please Enter your new name");
+                consoleLog.worker4();
                 nameData();
             } else if (data.stringUserInput.equals("2")) {
                 break;
@@ -98,7 +103,7 @@ public class menu {
 
     public static void option5() {
         // system exit
-        System.out.println("[SUB] Are you sure you want to quit the game? Y/N");
+        consoleLog.subExit();
 
         while (true) {
             data.stringUserInput = data.userInput.nextLine();
@@ -107,9 +112,9 @@ public class menu {
             if (data.conditions.getInput().equalsIgnoreCase("N")) {
                 break;
             } else if (data.conditions.getInput().equalsIgnoreCase("Y")) {
-                data.userInput.close();
-                System.exit(0);
-                // FIXME Change main boolean entry point to false of the whileloop to all System.exit
+                menuBreak = false;
+                data.globalRun = false;
+                break;
             }
         }
     }
@@ -118,21 +123,24 @@ public class menu {
         // Intro Setup
 
         while (data.introName) {
-            System.out.println("[WORKER] Please type in your name to proceed or type \"QUIT\" to exit");
+            consoleLog.worker1();
             data.stringUserInput = data.userInput.nextLine();
             data.username.setInput(data.stringUserInput);
 
             if (data.stringUserInput.equalsIgnoreCase("QUIT")) {
+                data.stringUserInput = "";
+                data.username.setInput(data.stringUserInput);
                 option5();
+                
             }
-
+            // when returning from quit menu program proceeds to confirm name instead of restarting
             while (true) {
-                System.out.println("[WORKER] Are you sure your name is " + data.username.getInput() + "? Type Y/N");
+                consoleLog.worker2();
                 data.stringUserInput = data.userInput.nextLine();
                 data.conditions.setInput(data.stringUserInput);
 
                 if (data.conditions.getInput().equalsIgnoreCase("n")) {
-                    System.out.println("[WORKER] Please type your name again");
+                    consoleLog.worker3();
                     data.stringUserInput = data.userInput.nextLine();
                     data.username.setInput(data.stringUserInput);
                 } else {
@@ -152,15 +160,14 @@ public class menu {
             data.stringUserInput = data.userInput.nextLine();
             data.username.setInput(data.stringUserInput);
 
-            System.out.println("[WORKER] Are you sure your name is " + data.username.getInput() + "? Type Y/N");
+            consoleLog.worker2();
             data.stringUserInput = data.userInput.nextLine();
             data.conditions.setInput(data.stringUserInput);
 
             if (data.stringUserInput.equalsIgnoreCase("QUIT")) {
-                System.out.println("[WORKER] Alright! Closing terminal program");
-                System.exit(0);
+                option5();
             } else if (data.stringUserInput.equalsIgnoreCase("n")) {
-                System.out.println("[WORKER] Please type in your name to proceed");
+                consoleLog.worker3();
             } else {
                 break;
             }

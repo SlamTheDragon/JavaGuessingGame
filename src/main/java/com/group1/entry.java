@@ -1,9 +1,7 @@
 package com.group1;
 
-import com.group1.data.lang.consoleprint;
+import com.group1.data.lang.consoleLog;
 import com.group1.data.program.data;
-// TODO import java.util.Random;
-
 
 
 public class entry {
@@ -11,9 +9,9 @@ public class entry {
 
         //===[ INTRO ]===
 
-        consoleprint.intro1();
+        consoleLog.intro1();
         menu.nameDataIntro();
-        consoleprint.intro2();
+        consoleLog.intro2();
         data.userInput.nextLine();
 
         //===[ MAIN MENU ]===
@@ -21,9 +19,14 @@ public class entry {
         while (true) {
             menu.main(new String[0]);
 
+            if (!data.globalRun) {
+                data.userInput.close();
+                break;
+            }
+            
             //debug
-            System.out.println("[MAIN THREAD] Program Reset Detected");
-            System.out.println("[MAIN THREAD] Restarting");
+            consoleLog.triggerRestart();
+
             data.stringUserInput = "";
             data.score = 100;
             data.username.setInput(data.stringUserInput);
@@ -31,10 +34,12 @@ public class entry {
             data.introName = true;
 
             //re-intro
-            consoleprint.intro1();
+            consoleLog.intro1();
             menu.nameDataIntro();
-            consoleprint.intro2();
+            consoleLog.intro2();
             data.userInput.nextLine();
         }
+
+        data.userInput.close();
     }
 }
