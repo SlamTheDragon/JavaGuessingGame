@@ -11,8 +11,6 @@ public class entry {
 
         consoleLog.intro1();
         menu.nameDataIntro();
-        consoleLog.intro2();
-        data.userInput.nextLine();
 
         //===[ MAIN MENU ]===
 
@@ -28,10 +26,11 @@ public class entry {
             consoleLog.triggerRestart();
 
             data.stringUserInput = "";
-            data.score = 100;
+            data.score = 0;
             data.username.setInput(data.stringUserInput);
             data.conditions.setInput(data.stringUserInput);
             data.introName = true;
+            data.globalRun = true;
 
             //re-intro
             consoleLog.intro1();

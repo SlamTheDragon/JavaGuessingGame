@@ -7,8 +7,12 @@ import com.group1.data.program.data;
 
 public class menu {
     //Initialize local variables
-    private static int menuBreakCounter;
+    private static int menuBreakCounter, subMenuBreakCounter;
     private static boolean menuBreak = true;
+    private static boolean introLoop = true;
+    private static boolean intro = true;
+    private static boolean mechLoop = true;
+    private static boolean exitMenu = true;
 
     public static void main(String[] strings) throws InputMismatchException {
 
@@ -39,9 +43,16 @@ public class menu {
                 data.conditions.setInput(data.stringUserInput);
 
                 if (data.conditions.getInput().equalsIgnoreCase("y")) {
+                    menuBreak = true;
+                    introLoop = true;
+                    intro = true;
+                    mechLoop = true;
+                    exitMenu = true;
+                    menuBreakCounter = 0;
+                    subMenuBreakCounter = 0;
                     break;
-                } else {
-                    // skip
+
+                    // FIXME duplication of intro lines of confirming name (minor)
                 }
             } else {
                 consoleLog.errMismatch1();
@@ -49,7 +60,7 @@ public class menu {
                 if (menuBreakCounter == 4) {
                     consoleLog.errExceeded();
                     data.globalRun = false;
-                    menuBreak =false;
+                    menuBreak = false;
                 }
             }
         }
@@ -69,13 +80,23 @@ public class menu {
         // TODO game mechanics
 
         consoleLog.subMech();
-        while (true) {
+        while (mechLoop) {
             consoleLog.subOptions1();
             data.stringUserInput = data.userInput.nextLine();
-            if (data.stringUserInput.equalsIgnoreCase("BACK")) {
+            if (data.stringUserInput.equalsIgnoreCase("BACK") || data.stringUserInput.equalsIgnoreCase("1")) {
+                subMenuBreakCounter = 0;
                 break;
-            } else if (data.stringUserInput.equalsIgnoreCase("QUIT")) {
+            } else if (data.stringUserInput.equalsIgnoreCase("QUIT") || data.stringUserInput.equalsIgnoreCase("2")) {
+                mechLoop = false;
                 option5();
+            } else {
+                consoleLog.errMismatch2();
+                ++subMenuBreakCounter;
+                if (subMenuBreakCounter == 4) {
+                    consoleLog.errExceeded2();
+                    subMenuBreakCounter = 0;
+                    break;
+                }
             }
         }
     }
@@ -86,7 +107,7 @@ public class menu {
 
     public static void option4() {
         // settings
-
+        // FIXME Apply mismatch limit same as option 2 and menu
         while (true) {
             consoleLog.menuSettings();
 
@@ -105,23 +126,29 @@ public class menu {
         // system exit
         consoleLog.subExit();
 
-        while (true) {
+        while (exitMenu) {
             data.stringUserInput = data.userInput.nextLine();
             data.conditions.setInput(data.stringUserInput);
 
             if (data.conditions.getInput().equalsIgnoreCase("N")) {
+                mechLoop = true;
+                if (intro) {
+                    nameDataIntro();
+                }
                 break;
             } else if (data.conditions.getInput().equalsIgnoreCase("Y")) {
                 menuBreak = false;
+                exitMenu = false;
+                introLoop = false;
                 data.globalRun = false;
-                break;
+                data.introName = false;
             }
         }
     }
 
     public static void nameDataIntro() {
         // Intro Setup
-
+        
         while (data.introName) {
             consoleLog.worker1();
             data.stringUserInput = data.userInput.nextLine();
@@ -131,10 +158,9 @@ public class menu {
                 data.stringUserInput = "";
                 data.username.setInput(data.stringUserInput);
                 option5();
-                
             }
-            // when returning from quit menu program proceeds to confirm name instead of restarting
-            while (true) {
+
+            while (introLoop) {
                 consoleLog.worker2();
                 data.stringUserInput = data.userInput.nextLine();
                 data.conditions.setInput(data.stringUserInput);
@@ -144,7 +170,11 @@ public class menu {
                     data.stringUserInput = data.userInput.nextLine();
                     data.username.setInput(data.stringUserInput);
                 } else {
+                    intro = false;
+                    introLoop = false;
                     data.introName = false;
+                    consoleLog.intro2();
+                    data.userInput.nextLine();
                     break;
                 }
             }

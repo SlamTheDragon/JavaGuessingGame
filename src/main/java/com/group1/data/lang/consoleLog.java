@@ -68,8 +68,35 @@ public class consoleLog {
     }
 
     public static void subMech() {
-        System.out.println("[SUB] Mechanics Here.");
-        
+        System.out.println("[SUB] =======[ GAME MECHANICS ]=======");
+        System.out.println("[SUB] Hello " + data.username.getInput() + "!");
+        System.out.println("[SUB] Here are the game mechanics for");
+        System.out.println("[SUB] you to read!");
+        System.out.println("[SUB]");
+        System.out.println("[SUB]   - There are 5 random ");
+        System.out.println("[SUB]     questions given under the");
+        System.out.println("[SUB]     category you have selected");
+        System.out.println("[SUB]");
+        System.out.println("[SUB]   - In order to win, you must");
+        System.out.println("[SUB]     answer all 5 questions");
+        System.out.println("[SUB]     correctly");
+        System.out.println("[SUB]");
+        System.out.println("[SUB]   - a hundred points is given");
+        System.out.println("[SUB]     if you are able to complete");
+        System.out.println("[SUB]     the quiz without any");
+        System.out.println("[SUB]     mistakes!");
+        System.out.println("[SUB]");
+        System.out.println("[SUB]   - You are given four attempts");
+        System.out.println("[SUB]     to answer a question");
+        System.out.println("[SUB]     correctly, however, for each");
+        System.out.println("[SUB]     incorrect answer you'll");
+        System.out.println("[SUB]     receive a deduction of 5");
+        System.out.println("[SUB]     points");
+        System.out.println("[SUB]     Therefore if you ran out of");
+        System.out.println("[SUB]     attempts you'll receive a");
+        System.out.println("[SUB]     deduction of 20 points");
+        System.out.println("[SUB]");
+        System.out.println("[SUB] There ya have it!");
     }
 
     public static void subOptions1() {
@@ -86,7 +113,15 @@ public class consoleLog {
         System.out.println("[ERROR] Please enter a number only!");
     }
 
+    public static void errMismatch2() {
+        System.out.println("[ERROR] Please specify the correct keyword!");
+    }
+
     public static void errExceeded() {
         System.out.println("[ERROR] Exceeded mismatch attempts, closing program");
+    }
+    
+    public static void errExceeded2() {
+        System.out.println("[ERROR] Exceeded mismatch attempts, closing menu");
     }
 }
