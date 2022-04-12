@@ -4,7 +4,7 @@ import com.group1.data.program.data;
 // TODO import java.util.Random;
 
 public class menu {
-    public static void main(String[] strings) {
+    public static void main(String[] args) {
 
         while (data.menuBreak) {
 
