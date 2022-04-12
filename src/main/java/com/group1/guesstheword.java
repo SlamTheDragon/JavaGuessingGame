@@ -26,8 +26,7 @@ public class guesstheword {
         String jarName = dir.substring(dir.lastIndexOf("/") + 1);
         if (console == null && !GraphicsEnvironment.isHeadless()) {
             try {
-                Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k", "java -jar " + jarName});
-            } catch (IOException e) {
+                Runtime.getRuntime().exec(new String[] { "cmd", "/c", "start", "cmd", "/k", "java -jar " + jarName});            } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
