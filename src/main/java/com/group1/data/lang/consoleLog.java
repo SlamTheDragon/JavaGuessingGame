@@ -1,5 +1,4 @@
 package com.group1.data.lang;
-
 import com.group1.data.program.data;
 
 public class consoleLog {

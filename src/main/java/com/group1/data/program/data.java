@@ -1,5 +1,4 @@
 package com.group1.data.program;
-
 import java.util.Scanner;
 
 public class data {
@@ -14,6 +13,15 @@ public class data {
     // Variables Initialization
     public static String stringUserInput;
     public static int score;
+
+    public static int menuBreakCounter, subMenuBreakCounter;
+
     public static boolean introName = true;
     public static boolean globalRun = true;
+
+    public static boolean menuBreak = true;
+    public static boolean introLoop = true;
+    public static boolean intro = true;
+    public static boolean subLoop = true;
+    public static boolean exitMenu = true;
 }

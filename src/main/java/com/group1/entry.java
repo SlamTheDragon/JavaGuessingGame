@@ -2,6 +2,7 @@ package com.group1;
 
 import com.group1.data.lang.consoleLog;
 import com.group1.data.program.data;
+import com.group1.data.program.reset;
 
 
 public class entry {
@@ -24,14 +25,8 @@ public class entry {
             
             //debug
             consoleLog.triggerRestart();
-
-            data.stringUserInput = "";
-            data.score = 0;
-            data.username.setInput(data.stringUserInput);
-            data.conditions.setInput(data.stringUserInput);
-            data.introName = true;
-            data.globalRun = true;
-
+            reset.dataReset();
+            
             //re-intro
             consoleLog.intro1();
             menu.nameDataIntro();
