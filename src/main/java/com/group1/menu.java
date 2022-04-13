@@ -1,15 +1,13 @@
 package com.group1;
 import com.group1.data.lang.consoleLog;
 import com.group1.data.program.data;
-// TODO import java.util.Random;
 
 public class menu {
-    public static void main(String[] strings) {
+    public static void main(String[] args) {
 
         while (data.menuBreak) {
 
             consoleLog.menu();
-
             data.stringUserInput = data.userInput.nextLine();
 
             if (data.stringUserInput.equals("1")) {
@@ -45,20 +43,34 @@ public class menu {
                 }
             }
         }
-
     }
 
     public static void option1() {
-        // TODO quiz wrapper
+        // quiz wrapper
 
         while (true) {
-            // category selector here
-            break;
+            consoleLog.menuQuiz();
+            data.stringUserInput = data.userInput.nextLine();
+
+            if (data.stringUserInput.equalsIgnoreCase("1")) {
+                data.subMenuBreakCounter = 0;
+                categoryMenu();
+            } else if (data.stringUserInput.equalsIgnoreCase("2")) {
+                data.subMenuBreakCounter = 0;
+                break;
+            } else {
+                consoleLog.errMismatch1();
+                ++data.subMenuBreakCounter;
+                if (data.subMenuBreakCounter == 4) {
+                    consoleLog.errExceeded2();
+                    data.subMenuBreakCounter = 0;
+                    break;
+                }
+            }
         }
     }
 
     public static void option2() {
-        // TODO game mechanics
 
         consoleLog.subMech();
         while (data.subLoop) {
@@ -83,7 +95,15 @@ public class menu {
     }
 
     public static void option3() {
-        // TODO get previous score
+        // get previous score
+
+        if (!data.hasTakenQuiz) {
+            consoleLog.worker5();
+            data.userInput.nextLine();
+        } else /*if (data.hasTakenQuiz)*/ {
+            consoleLog.menuPrev();
+            data.userInput.nextLine();
+        }
     }
 
     public static void option4() {
@@ -95,11 +115,11 @@ public class menu {
 
             if (data.stringUserInput.equals("1")) {
                 consoleLog.worker4();
+                data.subMenuBreakCounter = 0;
                 nameData();
             } else if (data.stringUserInput.equals("2")) {
                 break;
             } else {
-                // TODO here
                 consoleLog.errMismatch1();
                 ++data.subMenuBreakCounter;
                 if (data.subMenuBreakCounter == 4) {
@@ -112,10 +132,11 @@ public class menu {
     }
 
     public static void option5() {
-        // system exit
-        consoleLog.subExit();
+        // System exit
 
+        consoleLog.subExit();
         while (data.exitMenu) {
+            data.subMenuBreakCounter = 0;
             data.stringUserInput = data.userInput.nextLine();
             data.conditions.setInput(data.stringUserInput);
 
@@ -131,6 +152,29 @@ public class menu {
                 data.introLoop = false;
                 data.globalRun = false;
                 data.introName = false;
+            }
+        }
+    }
+
+    public static void categoryMenu() {
+        while (true) {
+            consoleLog.menuCategory();
+            data.stringUserInput = data.userInput.nextLine();
+
+            if (data.stringUserInput.equalsIgnoreCase("1")) {
+                data.subMenuBreakCounter = 0;
+                //choice 1
+            } else if (data.stringUserInput.equalsIgnoreCase("2")) {
+                data.subMenuBreakCounter = 0;
+                //chouce 2
+            } else {
+                consoleLog.errMismatch1();
+                ++data.subMenuBreakCounter;
+                if (data.subMenuBreakCounter == 4) {
+                    consoleLog.errExceeded2();
+                    data.subMenuBreakCounter = 0;
+                    break;
+                }
             }
         }
     }
@@ -192,5 +236,4 @@ public class menu {
             }
         }
     }
-
 }

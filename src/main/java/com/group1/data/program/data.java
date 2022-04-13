@@ -11,10 +11,8 @@ public class data {
     // userdata answers = new userdata();
 
     // Variables Initialization
-    public static String stringUserInput;
-    public static int score;
-
-    public static int menuBreakCounter, subMenuBreakCounter;
+    public static String stringUserInput, qCategory;
+    public static int menuBreakCounter, subMenuBreakCounter, qScore, qCorrect, qAttempt, qAverageAttempt;
 
     public static boolean introName = true;
     public static boolean globalRun = true;
@@ -24,4 +22,5 @@ public class data {
     public static boolean intro = true;
     public static boolean subLoop = true;
     public static boolean exitMenu = true;
+    public static boolean hasTakenQuiz = false; // TODO change this to true after quiz
 }

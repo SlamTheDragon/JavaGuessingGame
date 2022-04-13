@@ -3,7 +3,7 @@ import com.group1.data.program.data;
 
 public class consoleLog {
 
-    // MESSAGES
+    // MAIN MESSAGES
 
     public static void triggerRestart() {
         System.out.println("[MAIN THREAD] Program Reset Detected");
@@ -42,6 +42,64 @@ public class consoleLog {
         System.out.println("[MENU] ==========================");
     }
 
+    public static void menuQuiz() {
+        System.out.println("[MENU] =======[ START QUIZ ]=======");
+        System.out.println("[MENU]        Enter a Number       ");
+        System.out.println("[MENU]   [1] Select a category     ");
+        System.out.println("[MENU]   [2] Back                  ");
+        System.out.println("[MENU] ============================");
+    }
+
+    public static void menuCategory() {
+        System.out.println("[MENU] ======[ START QUIZ ]======");
+        System.out.println("[MENU]      Select a Category    ");
+        System.out.println("[MENU]         [1] Place         ");
+        System.out.println("[MENU]         [2] Things        ");
+        System.out.println("[MENU]         [3] Names         ");
+        System.out.println("[MENU]         [4] Animals       ");
+        System.out.println("[MENU]         [5] Back          ");
+        System.out.println("[MENU] ==========================");
+    }
+
+    public static void menuQuizStart() {
+        System.out.println("[MENU] ==========[ START QUIZ ]==========");
+        System.out.println("[MENU]   You're about to start the quiz  ");
+        System.out.println("[MENU]        about " + data.qCategory);
+        System.out.println("[MENU]             [1] Start             ");
+        System.out.println("[MENU]             [2] Cancel            ");
+        System.out.println("[MENU] ==================================");
+    }
+
+    public static void menuQuizEnd() {
+        System.out.println("[MENU] ======[ QUIZ HAS ENDED ]======");
+        System.out.println("[MENU]   Awesome! Here is your final ");
+        System.out.println("[MENU]           quiz stats          ");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]      You have guessed: " + data.qCorrect + "/5");
+        System.out.println("[MENU]      words correctly!         ");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]      And you got a total score");
+        System.out.println("[MENU]      of " + data.qScore + "/100");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]      Your average attempts to ");
+        System.out.println("[MENU]      guess the word correctly ");
+        System.out.println("[MENU]      is " + data.qAverageAttempt);
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]       [1] Play again          ");
+        System.out.println("[MENU]       [2] Back to Main Menu   ");
+        System.out.println("[MENU] ==============================");
+    }
+
+    public static void menuPrev() {
+        System.out.println("[MENU] ======[ Previous Quiz ]======");
+        System.out.println("[MENU]      Score: " + data.qScore + "/100");
+        System.out.println("[MENU]      Correct Items: " + data.qCorrect + "/5");
+        System.out.println("[MENU]      Average Attempts Taken: " + data.qAverageAttempt);
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]            [1] Back          ");
+        System.out.println("[MENU] =============================");
+    }
+
     // WORKER MESSAGES
 
     public static void worker1() {
@@ -58,6 +116,11 @@ public class consoleLog {
 
     public static void worker4() {
         System.out.println("[WORKER] Please Enter your new name");
+    }
+
+    public static void worker5() {
+        System.out.println("[WORKER] You haven't taken a quiz yet!");
+        System.out.println("[WORKER] Press enter to continue");
     }
 
     // SUB MESSAGES
