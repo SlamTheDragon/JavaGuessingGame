@@ -1,4 +1,6 @@
 package com.group1.data.lang;
+import java.util.concurrent.TimeUnit;
+
 import com.group1.data.program.data;
 
 public class consoleLog {
@@ -57,14 +59,15 @@ public class consoleLog {
         System.out.println("[MENU]         [2] Things        ");
         System.out.println("[MENU]         [3] Names         ");
         System.out.println("[MENU]         [4] Animals       ");
-        System.out.println("[MENU]         [5] Back          ");
+        System.out.println("[MENU]         [5] Random        ");
+        System.out.println("[MENU]         [6] Back          ");
         System.out.println("[MENU] ==========================");
     }
 
     public static void menuQuizStart() {
         System.out.println("[MENU] ==========[ START QUIZ ]==========");
         System.out.println("[MENU]   You're about to start the quiz  ");
-        System.out.println("[MENU]        about " + data.qCategory);
+        System.out.println("[MENU]   about: \"" + data.qCategory + "\"");
         System.out.println("[MENU]             [1] Start             ");
         System.out.println("[MENU]             [2] Cancel            ");
         System.out.println("[MENU] ==================================");
@@ -171,19 +174,29 @@ public class consoleLog {
 
     // ERRORS
 
-    public static void errMismatch1() {
+    public static void errMismatch1() throws InterruptedException {
         System.out.println("[ERROR] Please enter a number only!");
+        TimeUnit.MILLISECONDS.sleep(500);
     }
 
-    public static void errMismatch2() {
+    public static void errMismatch2() throws InterruptedException {
         System.out.println("[ERROR] Please specify the correct keyword!");
+        TimeUnit.MILLISECONDS.sleep(500);
     }
 
-    public static void errExceeded() {
+    public static void errExceeded() throws InterruptedException {
         System.out.println("[ERROR] Exceeded mismatch attempts, closing program");
+        TimeUnit.MILLISECONDS.sleep(500);
     }
     
-    public static void errExceeded2() {
+    public static void errExceeded2() throws InterruptedException {
         System.out.println("[ERROR] Exceeded mismatch attempts, closing menu");
+        TimeUnit.MILLISECONDS.sleep(500);
+    }
+
+    public static void errSomethingWentWrong() throws InterruptedException {
+        // Unused | Keep it for future use
+        System.out.println("[ERROR] Something went wrong, restarting program");
+        TimeUnit.MILLISECONDS.sleep(500);
     }
 }

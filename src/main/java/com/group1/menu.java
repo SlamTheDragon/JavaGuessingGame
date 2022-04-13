@@ -3,7 +3,7 @@ import com.group1.data.lang.consoleLog;
 import com.group1.data.program.data;
 
 public class menu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         while (data.menuBreak) {
 
@@ -45,7 +45,7 @@ public class menu {
         }
     }
 
-    public static void option1() {
+    private static void option1() throws InterruptedException {
         // quiz wrapper
 
         while (true) {
@@ -70,9 +70,11 @@ public class menu {
         }
     }
 
-    public static void option2() {
+    private static void option2() throws InterruptedException {
+        // Mechanics
 
         consoleLog.subMech();
+
         while (data.subLoop) {
             consoleLog.subOptions1();
             data.stringUserInput = data.userInput.nextLine();
@@ -94,19 +96,19 @@ public class menu {
         }
     }
 
-    public static void option3() {
+    private static void option3() {
         // get previous score
 
         if (!data.hasTakenQuiz) {
             consoleLog.worker5();
             data.userInput.nextLine();
-        } else /*if (data.hasTakenQuiz)*/ {
+        } else {
             consoleLog.menuPrev();
             data.userInput.nextLine();
         }
     }
 
-    public static void option4() {
+    private static void option4() throws InterruptedException {
         // settings
 
         while (true) {
@@ -156,17 +158,57 @@ public class menu {
         }
     }
 
-    public static void categoryMenu() {
+    private static void categoryMenu() throws InterruptedException {
         while (true) {
             consoleLog.menuCategory();
+            data.stringUserInput = data.userInput.nextLine();
+            
+            if (data.stringUserInput.equalsIgnoreCase("1")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "place";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("2")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "things";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("3")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "names";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("4")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "animals";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("5")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "random";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("6")) {
+                data.subMenuBreakCounter = 0;
+                break;
+            } else {
+                consoleLog.errMismatch1();
+                ++data.subMenuBreakCounter;
+                if (data.subMenuBreakCounter == 4) {
+                    consoleLog.errExceeded2();
+                    data.subMenuBreakCounter = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    private static void confirmStart() throws InterruptedException {
+        while (true) {
+            consoleLog.menuQuizStart();
             data.stringUserInput = data.userInput.nextLine();
 
             if (data.stringUserInput.equalsIgnoreCase("1")) {
                 data.subMenuBreakCounter = 0;
-                //choice 1
+                quiz.main(new String[0]);
             } else if (data.stringUserInput.equalsIgnoreCase("2")) {
                 data.subMenuBreakCounter = 0;
-                //chouce 2
+                break;
             } else {
                 consoleLog.errMismatch1();
                 ++data.subMenuBreakCounter;

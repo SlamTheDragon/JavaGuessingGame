@@ -6,7 +6,7 @@ import com.group1.data.program.reset;
 
 
 public class entry {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         //===[ INTRO ]===
 
