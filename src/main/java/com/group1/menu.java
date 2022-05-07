@@ -1,16 +1,22 @@
 package com.group1;
 import com.group1.data.lang.consoleLog;
 import com.group1.data.program.data;
+import com.group1.data.program.reset;
 
 public class menu {
     public static void main(String[] args) throws InterruptedException {
-
+        // Main Menu
+        
         while (data.menuBreak) {
+            data.subLoop = true;
+            data.isTakingName = true;
 
-            consoleLog.menu();
-            data.stringUserInput = data.userInput.nextLine();
+            if (!data.isReplay) {
+                consoleLog.menu();
+                data.stringUserInput = data.userInput.nextLine();
+            }
 
-            if (data.stringUserInput.equals("1")) {
+            if (data.stringUserInput.equals("1") || data.isReplay) {
                 data.menuBreakCounter = 0;
                 option1();
             } else if (data.stringUserInput.equals("2")) {
@@ -30,9 +36,9 @@ public class menu {
                 data.stringUserInput = data.userInput.nextLine();
                 data.conditions.setInput(data.stringUserInput);
 
-                if (data.conditions.getInput().equalsIgnoreCase("y")) {
-                    break;
-                }
+            if (data.conditions.getInput().equalsIgnoreCase("y")) {
+                break;
+            }
             } else {
                 consoleLog.errMismatch1();
                 ++data.menuBreakCounter;
@@ -43,20 +49,38 @@ public class menu {
                 }
             }
         }
-    }
+   }
 
-    private static void option1() throws InterruptedException {
-        // quiz wrapper
+    public static void option1() throws InterruptedException {
+        // Quiz Wrapper
 
-        while (true) {
-            consoleLog.menuQuiz();
+        while (data.subLoop) {
+            consoleLog.menuCategory();
             data.stringUserInput = data.userInput.nextLine();
 
             if (data.stringUserInput.equalsIgnoreCase("1")) {
                 data.subMenuBreakCounter = 0;
-                categoryMenu();
+                data.qCategory = "place";
+                confirmStart();
             } else if (data.stringUserInput.equalsIgnoreCase("2")) {
                 data.subMenuBreakCounter = 0;
+                data.qCategory = "things";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("3")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "names";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("4")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "animals";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("5")) {
+                data.subMenuBreakCounter = 0;
+                data.qCategory = "random";
+                confirmStart();
+            } else if (data.stringUserInput.equalsIgnoreCase("6")) {
+                data.subMenuBreakCounter = 0;
+                data.isReplay = false;
                 break;
             } else {
                 consoleLog.errMismatch1();
@@ -97,7 +121,7 @@ public class menu {
     }
 
     private static void option3() {
-        // get previous score
+        // Get Previous Score
 
         if (!data.hasTakenQuiz) {
             consoleLog.worker5();
@@ -109,9 +133,9 @@ public class menu {
     }
 
     private static void option4() throws InterruptedException {
-        // settings
+        // Settings
 
-        while (true) {
+        while (data.isTakingName) {
             consoleLog.menuSettings();
             data.stringUserInput = data.userInput.nextLine();
 
@@ -133,7 +157,7 @@ public class menu {
         }
     }
 
-    public static void option5() {
+    public static void option5() throws InterruptedException {
         // System exit
 
         consoleLog.subExit();
@@ -142,70 +166,36 @@ public class menu {
             data.stringUserInput = data.userInput.nextLine();
             data.conditions.setInput(data.stringUserInput);
 
-            if (data.conditions.getInput().equalsIgnoreCase("N")) {
+            if (data.conditions.getInput().equalsIgnoreCase("n")) {
                 data.subLoop = true;
                 if (data.intro) {
                     nameDataIntro();
                 }
                 break;
-            } else if (data.conditions.getInput().equalsIgnoreCase("Y")) {
-                data.menuBreak = false;
-                data.exitMenu = false;
-                data.introLoop = false;
-                data.globalRun = false;
-                data.introName = false;
-            }
-        }
-    }
-
-    private static void categoryMenu() throws InterruptedException {
-        while (true) {
-            consoleLog.menuCategory();
-            data.stringUserInput = data.userInput.nextLine();
-            
-            if (data.stringUserInput.equalsIgnoreCase("1")) {
-                data.subMenuBreakCounter = 0;
-                data.qCategory = "place";
-                confirmStart();
-            } else if (data.stringUserInput.equalsIgnoreCase("2")) {
-                data.subMenuBreakCounter = 0;
-                data.qCategory = "things";
-                confirmStart();
-            } else if (data.stringUserInput.equalsIgnoreCase("3")) {
-                data.subMenuBreakCounter = 0;
-                data.qCategory = "names";
-                confirmStart();
-            } else if (data.stringUserInput.equalsIgnoreCase("4")) {
-                data.subMenuBreakCounter = 0;
-                data.qCategory = "animals";
-                confirmStart();
-            } else if (data.stringUserInput.equalsIgnoreCase("5")) {
-                data.subMenuBreakCounter = 0;
-                data.qCategory = "random";
-                confirmStart();
-            } else if (data.stringUserInput.equalsIgnoreCase("6")) {
-                data.subMenuBreakCounter = 0;
-                break;
+            } else if (data.conditions.getInput().equalsIgnoreCase("y")) {
+                reset.exit();
             } else {
-                consoleLog.errMismatch1();
-                ++data.subMenuBreakCounter;
-                if (data.subMenuBreakCounter == 4) {
-                    consoleLog.errExceeded2();
-                    data.subMenuBreakCounter = 0;
-                    break;
+                consoleLog.errMismatch2();
+                ++data.menuBreakCounter;
+                if (data.menuBreakCounter == 4) {
+                    consoleLog.errExceeded();
+                    reset.exit();
                 }
             }
         }
     }
 
     private static void confirmStart() throws InterruptedException {
-        while (true) {
+        // Quiz Wrapper Entry
+
+        while (data.subLoop) {
             consoleLog.menuQuizStart();
             data.stringUserInput = data.userInput.nextLine();
 
             if (data.stringUserInput.equalsIgnoreCase("1")) {
                 data.subMenuBreakCounter = 0;
                 quiz.main(new String[0]);
+                data.subLoop = false;
             } else if (data.stringUserInput.equalsIgnoreCase("2")) {
                 data.subMenuBreakCounter = 0;
                 break;
@@ -221,60 +211,121 @@ public class menu {
         }
     }
 
-    public static void nameDataIntro() {
+    public static void nameDataIntro() throws InterruptedException {
         // Intro Setup
         
-        while (data.introName) {
-            consoleLog.worker1();
-            data.stringUserInput = data.userInput.nextLine();
-            data.username.setInput(data.stringUserInput);
+        boolean innerLoop = true;
+        boolean reLoop = true;
 
-            if (data.stringUserInput.equalsIgnoreCase("QUIT")) {
-                data.stringUserInput = "";
-                data.username.setInput(data.stringUserInput);
-                option5();
+        while (data.introLoop) {
+
+            while (innerLoop) {                
+                consoleLog.worker1();
+                data.stringUserInput = data.userInput.nextLine();
+                
+                if (data.stringUserInput.equalsIgnoreCase("QUIT")) {
+                    data.stringUserInput = "";
+                    option5();
+                } else if (data.stringUserInput.isEmpty()) {
+                    consoleLog.errEmptyInput();
+                } else if (data.stringUserInput.length() >= 8) {
+                    data.username.setInput(data.stringUserInput.trim().substring(0, 8));
+                    innerLoop = false;
+                } else {
+                    data.username.setInput(data.stringUserInput.trim());
+                    innerLoop = false;
+                }
             }
 
             while (data.introLoop) {
                 consoleLog.worker2();
                 data.stringUserInput = data.userInput.nextLine();
                 data.conditions.setInput(data.stringUserInput);
-
+                
                 if (data.conditions.getInput().equalsIgnoreCase("n")) {
+                    reLoop = true;
                     consoleLog.worker3();
-                    data.stringUserInput = data.userInput.nextLine();
-                    data.username.setInput(data.stringUserInput);
-                } else {
+                    
+                    while (reLoop) {
+                        data.stringUserInput = data.userInput.nextLine();
+                        if (data.stringUserInput.isEmpty()) {
+                            consoleLog.errEmptyInput();
+                        } else if (data.stringUserInput.length() >= 8) {
+                            data.username.setInput(data.stringUserInput.trim().substring(0, 8));
+                            reLoop = false;
+                        } else {
+                            data.username.setInput(data.stringUserInput.trim());
+                            reLoop = false;
+                        }
+                    }
+
+                } else if (data.conditions.getInput().equalsIgnoreCase("y")) {
                     data.intro = false;
                     data.introLoop = false;
                     data.introName = false;
                     consoleLog.intro2();
                     data.userInput.nextLine();
                     break;
+                } else if (data.stringUserInput.equalsIgnoreCase("quit")) {
+                    option5();
+                } else {
+                    consoleLog.errMismatch3();
+                    ++data.menuBreakCounter;
+                    if (data.menuBreakCounter == 4) {
+                        consoleLog.errExceeded3();
+                        data.introName = false;
+                        data.username.setInput("DefaultName");
+                        break;
+                    }
                 }
             }
-
         }
-
     }
 
-    public static void nameData() {
-        // name logic goes here
+    public static void nameData() throws InterruptedException {
+        // Name logic goes here
+
+        String nameHold = data.username.getInput();
 
         while (true) {
-            data.stringUserInput = data.userInput.nextLine();
-            data.username.setInput(data.stringUserInput);
+            
+            while (data.isTakingName) {                    
+                data.stringUserInput = data.userInput.nextLine();
+                    
+                if (data.stringUserInput.isEmpty()) {
+                    consoleLog.errEmptyInput();
+                } else if (data.stringUserInput.length() >= 8) {
+                    data.username.setInput(data.stringUserInput.trim().substring(0, 8));
+                    data.isTakingName = false;
+                } else {
+                    data.username.setInput(data.stringUserInput.trim());
+                    data.isTakingName = false;
+                }
+            }        
+            
 
             consoleLog.worker2();
             data.stringUserInput = data.userInput.nextLine();
             data.conditions.setInput(data.stringUserInput);
-
+            
             if (data.stringUserInput.equalsIgnoreCase("QUIT")) {
                 option5();
-            } else if (data.stringUserInput.equalsIgnoreCase("n")) {
+            } else if (data.conditions.getInput().equalsIgnoreCase("n")) {
+                data.isTakingName = true;
                 consoleLog.worker3();
-            } else {
+            } else if (data.conditions.getInput().equalsIgnoreCase("y")) {
+                data.isTakingName = false;
                 break;
+            } else {
+                consoleLog.errMismatch1();
+                ++data.subMenuBreakCounter;
+                if (data.subMenuBreakCounter == 4) {
+                    consoleLog.errExceeded2();
+                    data.subMenuBreakCounter = 0;
+                    data.isTakingName = false;
+                    data.username.setInput(nameHold);
+                    break;
+                }
             }
         }
     }

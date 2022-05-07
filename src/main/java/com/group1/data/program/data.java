@@ -12,7 +12,7 @@ public class data {
     // initialization of object class referenced as userdata
     public static final userdata username = new userdata();
     public static final userdata conditions = new userdata();
-    // FIXME userdata answers = new userdata();
+    public static final userdata answers = new userdata(); // TODO for answers
 
     // Variables Initialization
     public static String stringUserInput, qCategory;
@@ -28,5 +28,7 @@ public class data {
     public static boolean intro = true;
     public static boolean subLoop = true;
     public static boolean exitMenu = true;
-    public static boolean hasTakenQuiz = false; // TODO change this to true after quiz
+    public static boolean hasTakenQuiz = false;
+    public static boolean isReplay = false;
+    public static boolean isTakingName = true;
 }

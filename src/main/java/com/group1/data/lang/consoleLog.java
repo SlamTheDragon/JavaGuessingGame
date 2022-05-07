@@ -18,7 +18,7 @@ public class consoleLog {
     }
 
     public static void intro2() {
-        System.out.println("[MAIN THREAD] Hello " + data.username.getInput());
+        System.out.println("[MAIN THREAD] Hello " + data.username.getInput() + "!");
         System.out.println("[MAIN THREAD] Welcome to the the Guess The Word - Terminal Edition v1.1");
         System.out.println("[MAIN THREAD] Press Enter to continue");
     }
@@ -27,7 +27,10 @@ public class consoleLog {
 
     public static void menu() {
         System.out.println("[MENU] =======[MAIN MENU]=======");
-        System.out.println("[MENU]      Enter  a  Number    ");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU] Hello and welcomoe, " + data.username.getInput() + "!");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]    Please Enter a Number ");
         System.out.println("[MENU]       [1] Play Game      ");
         System.out.println("[MENU]       [2] Mechanics      ");
         System.out.println("[MENU]       [3] Prev Score     ");
@@ -78,35 +81,36 @@ public class consoleLog {
         System.out.println("[MENU]   Awesome! Here is your final ");
         System.out.println("[MENU]           quiz stats          ");
         System.out.println("[MENU] ");
-        System.out.println("[MENU]      You have guessed: " + data.qCorrect + "/5");
-        System.out.println("[MENU]      words correctly!         ");
+        System.out.println("[MENU]    You have guessed: " + data.qCorrect + "/5");
+        System.out.println("[MENU]    words correctly!         ");
         System.out.println("[MENU] ");
-        System.out.println("[MENU]      And you got a total score");
-        System.out.println("[MENU]      of " + data.qScore + "/100");
+        System.out.println("[MENU]    And you got a total score");
+        System.out.println("[MENU]    of " + data.qScore + "/100");
         System.out.println("[MENU] ");
-        System.out.println("[MENU]      Your average attempts to ");
-        System.out.println("[MENU]      guess the word correctly ");
-        System.out.println("[MENU]      is " + data.qAverageAttempt);
+        System.out.println("[MENU]    Your average attempts to ");
+        System.out.println("[MENU]    guess the word correctly ");
+        System.out.println("[MENU]    is " + data.qAverageAttempt);
         System.out.println("[MENU] ");
-        System.out.println("[MENU]       [1] Play again          ");
-        System.out.println("[MENU]       [2] Back to Main Menu   ");
+        System.out.println("[MENU]     [1] Play again          ");
+        System.out.println("[MENU]     [2] Back to Main Menu   ");
         System.out.println("[MENU] ==============================");
     }
 
     public static void menuPrev() {
         System.out.println("[MENU] ======[ Previous Quiz ]======");
-        System.out.println("[MENU]      Score: " + data.qScore + "/100");
-        System.out.println("[MENU]      Correct Items: " + data.qCorrect + "/5");
-        System.out.println("[MENU]      Average Attempts Taken: " + data.qAverageAttempt);
+        System.out.println("[MENU]    Name: " + data.username.getInput());
+        System.out.println("[MENU]    Score: " + data.qScore + "/100");
+        System.out.println("[MENU]    Correct Items: " + data.qCorrect + "/5");
+        System.out.println("[MENU]    Average Attempts Taken: " + data.qAverageAttempt);
         System.out.println("[MENU] ");
-        System.out.println("[MENU]            [1] Back          ");
+        System.out.println("[MENU]   [Press enter to continue]  ");
         System.out.println("[MENU] =============================");
     }
 
     // WORKER MESSAGES
 
     public static void worker1() {
-        System.out.println("[WORKER] Please type in your name to proceed or type \"QUIT\" to exit");
+        System.out.println("[WORKER] Please type in your name (8 Characters MAX) to proceed or type \"QUIT\" to exit");
     }
 
     public static void worker2() {
@@ -118,7 +122,7 @@ public class consoleLog {
     }
 
     public static void worker4() {
-        System.out.println("[WORKER] Please Enter your new name");
+        System.out.println("[WORKER] Please Enter your new name (8 Characters MAX)");
     }
 
     public static void worker5() {
@@ -129,7 +133,7 @@ public class consoleLog {
     // SUB MESSAGES
 
     public static void subRestart() {
-        System.out.println("[SUB] Are you sure you would like to restart the program? [Y/N]");
+        System.out.println("[SUB] Are you sure you would like to restart the program? [Y]");
     }
 
     public static void subMech() {
@@ -175,12 +179,17 @@ public class consoleLog {
     // ERRORS
 
     public static void errMismatch1() throws InterruptedException {
-        System.out.println("[ERROR] Please enter a number only!");
+        System.out.println("[ERROR] Please enter the correct items shown above!");
         TimeUnit.MILLISECONDS.sleep(500);
     }
 
     public static void errMismatch2() throws InterruptedException {
         System.out.println("[ERROR] Please specify the correct keyword!");
+        TimeUnit.MILLISECONDS.sleep(500);
+    }
+
+    public static void errMismatch3() throws InterruptedException {
+        System.out.println("[ERROR] Please choose a correct option!");
         TimeUnit.MILLISECONDS.sleep(500);
     }
 
@@ -194,9 +203,19 @@ public class consoleLog {
         TimeUnit.MILLISECONDS.sleep(500);
     }
 
+    public static void errExceeded3() throws InterruptedException {
+        System.out.println("[ERROR] Exceeded mismatch attempts, skipping setup");
+        TimeUnit.MILLISECONDS.sleep(500);
+    }
+
     public static void errSomethingWentWrong() throws InterruptedException {
         // Unused | Keep it for future use
         System.out.println("[ERROR] Something went wrong, restarting program");
+        TimeUnit.MILLISECONDS.sleep(500);
+    }
+
+    public static void errEmptyInput() throws InterruptedException {
+        System.out.println("[ERROR] You haven't typed anything, please try again!");
         TimeUnit.MILLISECONDS.sleep(500);
     }
 }

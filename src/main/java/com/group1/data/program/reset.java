@@ -13,6 +13,8 @@ public class reset {
         data.subLoop = true;
         data.exitMenu = true;
         data.hasTakenQuiz = false;
+        data.isReplay = false;
+        data.isTakingName = true;
 
         data.menuBreakCounter = 0;
         data.subMenuBreakCounter = 0;
@@ -23,5 +25,13 @@ public class reset {
 
         data.username.setInput(data.stringUserInput);
         data.conditions.setInput(data.stringUserInput);
+    }
+
+    public static void exit() {
+        data.menuBreak = false;
+        data.globalRun = false;
+        data.exitMenu = false;
+        data.introLoop = false;
+        data.introName = false;
     }
 }

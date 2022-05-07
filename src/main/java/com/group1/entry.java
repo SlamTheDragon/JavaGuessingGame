@@ -8,12 +8,12 @@ import com.group1.data.program.reset;
 public class entry {
     public static void main(String[] args) throws InterruptedException {
 
-        //===[ INTRO ]===
+        // ===[ INTRO ]===
 
         consoleLog.intro1();
         menu.nameDataIntro();
 
-        //===[ MAIN MENU ]===
+        // ===[ MAIN MENU ]===
 
         while (true) {
             menu.main(new String[0]);
@@ -23,11 +23,11 @@ public class entry {
                 break;
             }
             
-            //debug
+            // debug
             consoleLog.triggerRestart();
             reset.dataReset();
             
-            //re-intro
+            // re-intro
             consoleLog.intro1();
             menu.nameDataIntro();
         }
