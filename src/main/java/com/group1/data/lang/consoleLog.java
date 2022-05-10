@@ -1,6 +1,5 @@
 package com.group1.data.lang;
 import java.util.concurrent.TimeUnit;
-
 import com.group1.data.program.data;
 
 public class consoleLog {
@@ -8,19 +7,19 @@ public class consoleLog {
     // MAIN MESSAGES
 
     public static void triggerRestart() {
-        System.out.println("[MAIN THREAD] Program Reset Detected");
-        System.out.println("[MAIN THREAD] Restarting");
+        System.out.println("[MAIN] Program Reset Detected");
+        System.out.println("[MAIN] Restarting");
     }
 
     public static void intro1() {
-        System.out.println("[MAIN THREAD] Welcome to...");
-        System.out.println("[MAIN THREAD] ============================\n[MAIN THREAD] =                          =\n[MAIN THREAD] =      GUESS THE WORD      =\n[MAIN THREAD] =                          =\n[MAIN THREAD] ====[ Terminal Edition ]====");
+        System.out.println("[MAIN] Welcome to...");
+        System.out.println("[MAIN] ============================\n[MAIN] =                          =\n[MAIN] =      GUESS THE WORD      =\n[MAIN] =                          =\n[MAIN] ====[ Terminal Edition ]====");
     }
 
     public static void intro2() {
-        System.out.println("[MAIN THREAD] Hello " + data.username.getInput() + "!");
-        System.out.println("[MAIN THREAD] Welcome to the the Guess The Word - Terminal Edition v1.1");
-        System.out.println("[MAIN THREAD] Press Enter to continue");
+        System.out.println("[MAIN] Hello " + data.username.getInput() + "!");
+        System.out.println("[MAIN] Welcome to the the Guess The Word - Terminal Edition v1.1");
+        System.out.println("[MAIN] Press Enter to continue");
     }
 
     // MENUS
@@ -28,7 +27,7 @@ public class consoleLog {
     public static void menu() {
         System.out.println("[MENU] =======[MAIN MENU]=======");
         System.out.println("[MENU] ");
-        System.out.println("[MENU] Hello and welcomoe, " + data.username.getInput() + "!");
+        System.out.println("[MENU] Hello and welcome, " + data.username.getInput() + "!");
         System.out.println("[MENU] ");
         System.out.println("[MENU]    Please Enter a Number ");
         System.out.println("[MENU]       [1] Play Game      ");
@@ -43,8 +42,24 @@ public class consoleLog {
         System.out.println("[MENU] =======[ SETTINGS ]=======");
         System.out.println("[MENU]       Enter  a  Number    ");
         System.out.println("[MENU]        [1] Change Name (" + data.username.getInput() + ")");
-        System.out.println("[MENU]        [2] Back           ");
+        System.out.println("[MENU]        [2] Info");
+        System.out.println("[MENU]        [3] Back           ");
         System.out.println("[MENU] ==========================");
+    }
+
+    public static void menuInfo() {
+        System.out.println("[MENU] ==========[ INFO ]=========");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]      Project by GRP1");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]      Leader: ASANAS");
+        System.out.println("[MENU]      Members:");
+        System.out.println("[MENU]      - Ryan, Escobidal");
+        System.out.println("[MENU]      - Nacar, Heartlie");
+        System.out.println("[MENU]      - Iresh");
+        System.out.println("[MENU] ");
+        System.out.println("[MENU]  [Press enter to continue] ");
+        System.out.println("[MENU] ===========================");
     }
 
     public static void menuQuiz() {
@@ -60,8 +75,8 @@ public class consoleLog {
         System.out.println("[MENU]      Select a Category    ");
         System.out.println("[MENU]         [1] Place         ");
         System.out.println("[MENU]         [2] Things        ");
-        System.out.println("[MENU]         [3] Names         ");
-        System.out.println("[MENU]         [4] Animals       ");
+        System.out.println("[MENU]         [3] Animals       ");
+        System.out.println("[MENU]         [4] Names         ");
         System.out.println("[MENU]         [5] Random        ");
         System.out.println("[MENU]         [6] Back          ");
         System.out.println("[MENU] ==========================");
@@ -77,23 +92,37 @@ public class consoleLog {
     }
 
     public static void menuQuizEnd() {
-        System.out.println("[MENU] ======[ QUIZ HAS ENDED ]======");
-        System.out.println("[MENU]   Awesome! Here is your final ");
-        System.out.println("[MENU]           quiz stats          ");
-        System.out.println("[MENU] ");
-        System.out.println("[MENU]    You have guessed: " + data.qCorrect + "/5");
-        System.out.println("[MENU]    words correctly!         ");
-        System.out.println("[MENU] ");
-        System.out.println("[MENU]    And you got a total score");
-        System.out.println("[MENU]    of " + data.qScore + "/100");
-        System.out.println("[MENU] ");
-        System.out.println("[MENU]    Your average attempts to ");
-        System.out.println("[MENU]    guess the word correctly ");
-        System.out.println("[MENU]    is " + data.qAverageAttempt);
-        System.out.println("[MENU] ");
-        System.out.println("[MENU]     [1] Play again          ");
-        System.out.println("[MENU]     [2] Back to Main Menu   ");
-        System.out.println("[MENU] ==============================");
+        System.out.println("[QUIZ] ======[ QUIZ HAS ENDED ]======");
+        System.out.println("[QUIZ]   Awesome! Here is your final ");
+        System.out.println("[QUIZ]           quiz stats          ");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]    You have guessed: " + data.qCorrect + "/5");
+        System.out.println("[QUIZ]    words correctly!         ");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]    And you got a total score");
+        System.out.println("[QUIZ]    of " + data.qScore + "/100");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]    Your average attempts to ");
+        System.out.println("[QUIZ]    guess the word correctly ");
+        System.out.println("[QUIZ]    is " + data.qAverageAttempt);
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]    It took you " + data.minutes + "m and " + data.seconds + "s");
+        System.out.println("[QUIZ]    to finish the quiz");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]     [1] Play again          ");
+        System.out.println("[QUIZ]     [2] Back to Main Menu   ");
+        System.out.println("[QUIZ] ==============================");
+    }
+
+    public static void menuQuizEnd2() {
+        System.out.println("[QUIZ] ======[ QUIZ HAS ENDED ]======");
+        System.out.println("[QUIZ]   Quiz was interrupted by you ");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]      Try again... perhaps?");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]     [1] Play again          ");
+        System.out.println("[QUIZ]     [2] Back to Main Menu   ");
+        System.out.println("[QUIZ] ==============================");
     }
 
     public static void menuPrev() {
@@ -102,6 +131,7 @@ public class consoleLog {
         System.out.println("[MENU]    Score: " + data.qScore + "/100");
         System.out.println("[MENU]    Correct Items: " + data.qCorrect + "/5");
         System.out.println("[MENU]    Average Attempts Taken: " + data.qAverageAttempt);
+        System.out.println("[MENU]    Time Taken: " + data.minutes + "m " + data.seconds + "s");
         System.out.println("[MENU] ");
         System.out.println("[MENU]   [Press enter to continue]  ");
         System.out.println("[MENU] =============================");
@@ -128,6 +158,118 @@ public class consoleLog {
     public static void worker5() {
         System.out.println("[WORKER] You haven't taken a quiz yet!");
         System.out.println("[WORKER] Press enter to continue");
+    }
+
+    // QUIZ MESSAGES
+
+    private static void trippleDot() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(333);
+        System.out.print(".");
+        TimeUnit.MILLISECONDS.sleep(333);
+        System.out.print(".");
+        TimeUnit.MILLISECONDS.sleep(333);
+        System.out.print(".");
+    }
+
+    private static void quizIntroHasntTakenQuiz() throws InterruptedException {
+        System.out.println("[QUIZ] Welcome welcome, " + data.username.getInput() + "!");
+        TimeUnit.MILLISECONDS.sleep(800);
+        System.out.println("[QUIZ] And welcome to...");
+    }
+
+    private static void quizIntroHasTakenQuiz() throws InterruptedException {
+        System.out.println("[QUIZ] Hello again, " + data.username.getInput() + "!");
+        TimeUnit.MILLISECONDS.sleep(800);
+        System.out.println("[QUIZ] We're back to...");
+    }
+
+    private static void quizIntroHasnt2() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(800);
+        System.out.println("\n[QUIZ] " + data.username.getInput() + ", you're quite exited to play this game aren't you?");
+        TimeUnit.MILLISECONDS.sleep(500);
+        System.out.println("[QUIZ] Well of course... But just a short reminder, if you wanna cancel the quiz anytime, either enter \"X\" or \"QUIT\" (except you'll get deducted if you'll continue)");
+        System.out.println("[QUIZ] You may press enter to continue...");
+    }
+
+    private static void quizIntroHas2() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(800);
+        System.out.println("\n[QUIZ] " + data.username.getInput() + ", I bet you like more challenges aren't you?");
+        TimeUnit.MILLISECONDS.sleep(500);
+        System.out.println("[QUIZ] I've already told you this but just a reminder, \"X\" or \"QUIT\" to exit your way in this... quiz");
+        System.out.println("[QUIZ] You may press enter to continue...");
+    }
+
+    public static void quizIntro1() throws InterruptedException {
+
+        if (!data.hasTakenQuiz) {
+            quizIntroHasntTakenQuiz();
+        } else {
+            quizIntroHasTakenQuiz();
+        }
+
+        System.out.println("[QUIZ] ===========[ GUESS THE WORD ]===========");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]           THE ULTIMATE QUIZ...");
+        System.out.println("[QUIZ]          OF THE CATEGORY \"" + data.qCategory + "\"");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ]              (I guess...?)");
+        System.out.println("[QUIZ] ");
+        System.out.println("[QUIZ] ========================================");
+        TimeUnit.MILLISECONDS.sleep(1000);
+        System.out.print("[QUIZ] I am the quiz master, and you're");
+        trippleDot();
+        TimeUnit.MILLISECONDS.sleep(500);
+        System.out.print(" the player.");
+
+        if (!data.hasTakenQuiz) {
+            quizIntroHasnt2();
+        } else {
+            quizIntroHas2();
+        }
+
+        data.userInput.nextLine();
+
+        System.out.println("[QUIZ] Alright!");
+        TimeUnit.MILLISECONDS.sleep(800);
+        System.out.print("[QUIZ] We");
+        TimeUnit.MILLISECONDS.sleep(500);
+        System.out.print(" shall");
+        TimeUnit.MILLISECONDS.sleep(500);
+        System.out.print(" begin");
+        TimeUnit.MILLISECONDS.sleep(500);
+        System.out.print(" in...");
+        TimeUnit.MILLISECONDS.sleep(700);
+        System.out.print(" 3");
+        trippleDot();
+        System.out.print(" 2");
+        trippleDot();
+        System.out.print(" 1");
+        trippleDot();
+        System.out.println("\n[QUIZ] =============[ BEGIN ]=============");
+    }
+
+    public static void qLog1() {
+        System.out.println(quizLog.quizQuestion[data.randomQLogInt]);
+    }
+
+    public static void qLog2() {
+        System.out.print(quizLog.quizWrong[data.randomQLogInt]);
+    }
+
+    public static void qLog3() {
+        System.out.println(quizLog.quizEnds[data.randomQLogInt]);
+    }
+
+    public static void qLogCorrect() {
+        System.out.println("\n[QUIZ] =============[ CORRECT ]=============");
+    }
+
+    public static void qLogIncorrect() {
+        System.out.println("\n[QUIZ] =============[ INCORRECT ]=============");
+    }
+
+    public static void qLogIncorrectExceeded() {
+        System.out.println("\n[QUIZ] Oops... you ran out of attempts");
     }
 
     // SUB MESSAGES
@@ -174,6 +316,10 @@ public class consoleLog {
 
     public static void subExit() {
         System.out.println("[SUB] Are you sure you want to quit the game? [Y/N]");
+    }
+
+    public static void interruptQuiz() {
+        System.out.println("[SUB] Would you like to cancel the quiz? Any progress will be lost (enter \"Y\" to exit or press enter to continue)");
     }
 
     // ERRORS

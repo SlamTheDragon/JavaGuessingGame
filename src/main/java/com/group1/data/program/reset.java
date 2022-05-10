@@ -15,13 +15,22 @@ public class reset {
         data.hasTakenQuiz = false;
         data.isReplay = false;
         data.isTakingName = true;
+        data.isRandom = false;
+        data.isReplay = false;
+        data.iCorrect = false;
 
         data.menuBreakCounter = 0;
         data.subMenuBreakCounter = 0;
-        data.qScore = 0;
+        data.qScore = 100;
         data.qCorrect = 0;
         data.qAttempt = 0;
         data.qAverageAttempt = 0;
+
+        data.startTime = 0;
+        data.endTime = 0;
+        data.minutes = 0;
+        data.seconds = 0;
+        data.timeElapsed = 0;
 
         data.username.setInput(data.stringUserInput);
         data.conditions.setInput(data.stringUserInput);
@@ -33,5 +42,7 @@ public class reset {
         data.exitMenu = false;
         data.introLoop = false;
         data.introName = false;
+        data.innerLoop = false;
+        data.reLoop = false;
     }
 }

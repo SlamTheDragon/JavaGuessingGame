@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch quiz",
+            "request": "launch",
+            "mainClass": "com.group1.quiz",
+            "projectName": "guesstheword"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

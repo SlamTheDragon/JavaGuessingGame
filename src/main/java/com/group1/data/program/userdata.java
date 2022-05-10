@@ -10,4 +10,8 @@ public class userdata {
     public void setInput(String input) {
         this.input = input;
     }
+
+    public static void read() {
+        data.stringUserInput = data.userInput.nextLine();
+    }
 }

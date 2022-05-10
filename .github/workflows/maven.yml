@@ -38,5 +38,5 @@ jobs:
     - name: Persist workflow data as artifacts
       uses: actions/upload-artifact@v2
       with: 
-        name: guesstheword-snapshot
+        name: guesstheword-v1.1a
         path: output
