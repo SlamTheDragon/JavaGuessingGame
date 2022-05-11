@@ -16,6 +16,7 @@ public class quiz {
         
         // Initial Reset
         data.qCorrect = 0;
+        data.qScore = 100;
         closeQuiz = false;
 
         consoleLog.quizIntro1();

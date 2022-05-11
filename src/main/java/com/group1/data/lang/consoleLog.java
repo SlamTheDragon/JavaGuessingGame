@@ -185,7 +185,7 @@ public class consoleLog {
 
     private static void quizIntroHasnt2() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(800);
-        System.out.println("\n[QUIZ] " + data.username.getInput() + ", you're quite exited to play this game aren't you?");
+        System.out.println("\n[QUIZ] " + data.username.getInput() + ", you're quite excited to play this game aren't you?");
         TimeUnit.MILLISECONDS.sleep(500);
         System.out.println("[QUIZ] Well of course... But just a short reminder, if you wanna cancel the quiz anytime, either enter \"X\" or \"QUIT\" (except you'll get deducted if you'll continue)");
         System.out.println("[QUIZ] You may press enter to continue...");
@@ -297,11 +297,11 @@ public class consoleLog {
         System.out.println("[SUB]     the quiz without any");
         System.out.println("[SUB]     mistakes!");
         System.out.println("[SUB]");
-        System.out.println("[SUB]   - You are given four attempts");
+        System.out.println("[SUB]   - You are given five attempts");
         System.out.println("[SUB]     to answer a question");
         System.out.println("[SUB]     correctly, however, for each");
         System.out.println("[SUB]     incorrect answer you'll");
-        System.out.println("[SUB]     receive a deduction of 5");
+        System.out.println("[SUB]     receive a deduction of 4");
         System.out.println("[SUB]     points");
         System.out.println("[SUB]     Therefore if you ran out of");
         System.out.println("[SUB]     attempts you'll receive a");
