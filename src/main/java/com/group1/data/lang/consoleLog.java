@@ -52,11 +52,11 @@ public class consoleLog {
         System.out.println("[MENU] ");
         System.out.println("[MENU]      Project by GRP1");
         System.out.println("[MENU] ");
-        System.out.println("[MENU]      Leader: ASANAS");
+        System.out.println("[MENU]      Leader: SlamTheDragon");
         System.out.println("[MENU]      Members:");
-        System.out.println("[MENU]      - Ryan, Escobidal");
-        System.out.println("[MENU]      - Nacar, Heartlie");
-        System.out.println("[MENU]      - Iresh");
+        System.out.println("[MENU]      - ###");
+        System.out.println("[MENU]      - ###");
+        System.out.println("[MENU]      - ###");
         System.out.println("[MENU] ");
         System.out.println("[MENU]  [Press enter to continue] ");
         System.out.println("[MENU] ===========================");
